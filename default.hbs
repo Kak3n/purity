@@ -7,6 +7,7 @@
 
     {{! Page Meta }}
     <title>{{#if post.title}} {{meta_title}} | {{@blog.title}}{{else}}{{meta_title}}{{/if}}</title>
+    <meta name="description" content="{{meta_description}}" />
     {{! OpenGraph Informations}}
     {{#if post}}
     {{#post}}
@@ -15,6 +16,7 @@
     <meta property="og:description" content="{{excerpt}}" />
     {{/post}}
     {{else}}
+    <meta property="og:description" content="{{meta_description}}" />
     <meta property="og:title" content="{{meta_title}}">
     {{/if}}
 
@@ -37,11 +39,23 @@
         <div class="sidebar pure-u">
             <header class="header">
                 <hgroup>
-                    {{#if @blog.logo}}<a id="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
+                    {{#if @blog.logo}}<img src="{{@blog.logo}}" alt="Blog Logo" class="lazyload" usemap="#logomap" />{{/if}}
+                    <map name="logomap">
+                        <!--<area alt="Pre lepšie Slovensko" title="Pre lepšie Slovensko" href="http://prelepsieslovensko.sk/" shape="circle" coords="361,202,51" target="_self"  />-->
+                        <area alt="G-Robot" title="G-Robot" href="https://g-robot.gvpt.sk/" shape="rect" coords="22,47,458,139" target="_self" />
+                        <area alt="Gymnázium Viliama Paulinyho-Tótha" title="Gymnázium Viliama Paulinyho-Tótha" href="http://gymmt.sk/" shape="rect" coords="67,152,170,252" target="_self" />
+                    </map>
+
                     <h1 itemprop="name" class="blog-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
                     <h2 itemprop="description" class="blog-description">{{@blog.description}}</h2>
                 </hgroup>
 
+                <div class="menu">
+                    {{navigation}}
+                </div>
+
+
+                <!-- Social Icons
                 <nav class="nav">
                 <ul class="social-list">
                     {{! In the following six lines edit the links between the quotations marks close to href= with the appropriate content }}
@@ -53,12 +67,11 @@
                     <li class="social-item"><a class="subscribe icon-feed" href="{{@blog.url}}/rss/" target="_blank"></a></li>
                 </ul>
                 </nav>
+                Social Icons -->
 
             </header>
             <footer class="footer">
-             <section class="copyright">&copy; 2013 <a itemscope="copyrightHolder" href="{{@blog.url}}">{{@blog.title}}</a></section>
-             <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://tryghost.org" target="_blank">Ghost</a></section> 
-             <section class="theme"><a href="https://github.com/mseri/purity" target="_blank">Purity</a> is built with <a href="http://purecss.io" target="_blank">PureCSS</a></section>
+             <section class="copyright">&copy; {{date format="YYYY"}} <a itemscope="copyrightHolder" href="{{@blog.url}}">{{@blog.title}}</a></section>
             </footer>
             
         </div>
@@ -79,9 +92,18 @@
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
     });
     </script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     REMOVE THIS LINE TO ENABLE MATHJAX -->
-    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{asset "js/lazysizes.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/responsive-image-map.js"}}"></script>
+
+    <script>
+        $(document).ready(function(e) {
+            $('img[usemap]').rwdImageMaps();
+        });
+    </script>
     <!-- REMOVE THIS LINE TO ENABLE GOOGLE ANALYTICS
     <script type="text/javascript">
     var _gaq = _gaq || [];

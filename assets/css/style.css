@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /* Import purecss-0.3 */
-@import url(http://yui.yahooapis.com/pure/0.3.0/pure-min.css);
+@import url(pure-min.css);
 /* Dark Theme: dark.css; Light Theme: light.css; */
 @import url(dark.css);
 
@@ -582,8 +582,30 @@ pre code {
    5. Phones
    ========================================================================== */
 
+@media (max-width: 670px) {
+
+    .map {
+        width: 400px;
+        height: 300px;
+    }
+
+}
+
 @media (max-width: 480px) {
     .content {
         padding: 2em 1em 0;
     }
+}
+
+@media (max-width: 430px) {
+
+    .map {
+        width: 300px;
+        height: 200px;
+    }
+
+}
+
+.nav ul {
+    list-style-type: none;
 }

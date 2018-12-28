@@ -9,7 +9,7 @@
             <a href="{{@blog.url}}">&larr;  back to the home page</a>
         </div>
 
-    <article itemscope itemtype="http://schema.org/Article" class="{{post_class}} purity_post">
+    <article itemscope itemtype="https://schema.org/Article" class="{{post_class}} purity_post">
 
         {{#post}}
 
@@ -51,35 +51,21 @@
         
         </section>
 
-        <!-- REMOVE THIS LINE TO ENABLE DISQUS COMMENTS
         <section class="post-comments">
             <div id="disqus_thread"></div>
             <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE UNCOMMENTING THE THEME * * */
-            var disqus_shortname = 'YOURDISQUSSHORTNAME'; // required: replace example with your forum shortname
-            var disqus_identifier = '{{comment_id}}';  // make sure to use the post.id as an identifier, 
-                                                    //otherwise disqus will use the pages url per default, 
-                                                    //which might be problematic...
+                /* * * CONFIGURATION VARIABLES * * */
+                var disqus_shortname = 'grobot';
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
             </script>
-            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
         </section>
-        REMOVE THIS LINE TO ENABLE DISQUS COMMENTS -->
-
-        <!-- REMOVE THIS LINE TO ENABLE GOOGLE+ COMMENTS
-        <section class="post-comments">
-            <div class="g-comments" data-href="{{@blog.url}}{{url}}" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>
-            <script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
-            <noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
-        </section>
-        REMOVE THIS LINE TO ENABLE GOOGLE + COMMENTS -->
 
         <!-- REMOVE THIS LINE TO ENABLE FACEBOOK COMMENTS
         <section class="post-comments">

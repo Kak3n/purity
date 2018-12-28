@@ -1,0 +1,61 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+{{! Everything inside the #post tags pulls data from the post }}
+
+<main class="content" role="main" id="top-post">
+    <div class="back">
+        <a href="{{@blog.url}}">&larr;  back to the home page</a>
+    </div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="{{post_class}} purity_post">
+
+        {{#post}}
+
+            <header class="post-header">
+                {{! img class="post-avatar" alt="...'s avatar" src="..." height="48" width="48"}}
+                <h2 itemprop="name" class="post-title big">{{title}}</h2>
+            </header>
+
+            {{! Everything below outputs content of the the post which has been published }}
+
+            <section class="post-content">
+
+                <div itemprop="articleBody">
+                    {{content}}
+                </div>
+
+            </section>
+
+            <!-- REMOVE THIS LINE TO ENABLE GOOGLE+ COMMENTS
+        <section class="post-comments">
+            <div class="g-comments" data-href="{{@blog.url}}{{url}}" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">Loading Google+ Comments ...</div>
+            <script async type="text/javascript" src="//apis.google.com/js/plusone.js?callback=gpcb"></script>
+            <noscript>Please enable JavaScript to view the <a href="https://plus.google.com/">comments powered by Google+.</a></noscript>
+        </section>
+        REMOVE THIS LINE TO ENABLE GOOGLE + COMMENTS -->
+
+            <!-- REMOVE THIS LINE TO ENABLE FACEBOOK COMMENTS
+        <section class="post-comments">
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=###YourAppID###";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="fb-comments" data-href="{{@blog.url}}{{url}}" data-width="470"></div>
+        </section>
+        REMOVE THIS LINE TO ENABLE FACEBOOK COMMENTS -->
+
+        {{/post}}
+
+    </article>
+    <script type="text/javascript">
+        document.getElementById( 'top-post' ).scrollIntoView();
+    </script>
+
+</main>

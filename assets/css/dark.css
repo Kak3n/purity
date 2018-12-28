@@ -18,6 +18,15 @@ a {
     .blog-description {
         color: rgb(142, 142, 214);
     }
+
+    .blog-description a {
+        color: #8E8ED6;
+    }
+
+    .blog-description a:hover {
+        color: #FFF;
+    }
+
     #blog-logo img {
         margin-bottom: 1em;
     }
